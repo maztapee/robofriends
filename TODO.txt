@@ -1,0 +1,8 @@
+TODOs
+    a. Implement a Navigation bar consisting  of Home, About Us and Contact Us and Back buttons
+    b. Add Create Robofriend page with form to input name and email address of new robot and auto-generate ID
+    c. Add Delete Functionality with a re-render
+    c. Add Animation to Robofriend photo when highlighted
+    d. Implement a nicer scroll bar for Robofriend list display
+    e. Make  sure the app is responsive on mobile devices
+    f. Implement Fixed view port for main page.
