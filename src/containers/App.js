@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, {Component, useMemo} from 'react';
 import CardList from '../components/CardList';
 import SearchBox from '../components/SearchBox';
 import Scroll from '../components/Scroll';
@@ -10,7 +10,9 @@ class App extends Component{
         this.state = {
             robots: [],
             search_field: "",
-            error: false
+            error: false,
+            filtered: [],
+            previous_search: ""
         }
     }
 
@@ -23,7 +25,14 @@ class App extends Component{
                 return response.json()
             })
     
-            .then(users => this.setState({robots: users}))
+            .then(users => {
+                console.log("this was called and users set");
+                this.setState({
+                    ...this.state, 
+                    robots: users,
+                    filtered: users
+                });
+            })
             .catch(error => {
                 console.log(`Error fetching data ${error}`);
                 this.setState({error: true})
@@ -31,7 +40,30 @@ class App extends Component{
     }
 
     onSearchChange = (event) =>{
-        this.setState({search_field: event.target.value});
+        if(!event.target.value?.trim()?.length) return;
+        this.doFilter(event.target.value?.trim());
+    };
+
+    doFilter = (value = "") => {
+        const { robots } = this.state;
+        const filteredRobots = robots.filter(robot => {
+            return robot.name.toLowerCase().includes(value.toLowerCase())
+        });
+        this.setState({
+            ...this.state,
+            filtered: filteredRobots
+        });
+    }
+
+    onClickDelete = (RobotListId) => {
+        console.log(RobotListId, " The ID to be deleted");
+        const indexOfSelected = RobotListId;
+        const CopyOfFiltered = this.state.filtered;
+        CopyOfFiltered.splice(indexOfSelected,1);
+        this.setState({
+            ...this.state,
+            filtered: [...CopyOfFiltered]
+        });
     };
 
     render(){
@@ -46,9 +78,11 @@ class App extends Component{
             </h1>
         }else{
             
-            const filteredRobots = robots.filter(robot => {
-                return robot.name.toLowerCase().includes(search_field.toLowerCase())
-            });
+            // const filteredRobots = robots.filter(robot => {
+            //     return robot.name.toLowerCase().includes(search_field.toLowerCase())
+            // });
+
+
 
             return (
                 <div className='tc'>
@@ -57,7 +91,10 @@ class App extends Component{
                         <SearchBox searchChange={this.onSearchChange}/>
                     </div>
                     <Scroll>
-                        <CardList robots={filteredRobots}/>
+                        <CardList 
+                        robots={this.state.filtered}
+                        delete_button={this.onClickDelete}
+                        />
                     </Scroll>
                 </div>
             )

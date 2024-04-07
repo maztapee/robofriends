@@ -2,8 +2,13 @@ import React from 'react';
 import Card from './Card';
 import 'tachyons';
 
-const CardList = ({robots}) => {
+const CardList = ({ robots, delete_button}) => {
     
+
+    const PerformDeleteFunction = (index) => {
+        return delete_button(index);
+    }
+
     return(
         <div>
             {
@@ -14,6 +19,7 @@ const CardList = ({robots}) => {
                             id={robots[index].id} 
                             name={robots[index].name} 
                             email={robots[index].email}
+                            remove_card={() => PerformDeleteFunction(index)}
                         />
                     );
                 })
