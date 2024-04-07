@@ -2,10 +2,12 @@ TODOs
     a. Implement a Navigation bar consisting  of Home, About Us and Contact Us and Back buttons
     b. Add Create Robofriend page with form to input name and email address of new robot and auto-generate ID
     c. Add Delete Functionality with a re-render
-    c. Add Animation to Robofriend photo when highlighted
-    d. Implement a nicer scroll bar for Robofriend list display
-    e. Make  sure the app is responsive on mobile devices
-    f. Implement Fixed view port for main page.
+        1. Added button and tooltip
+        2. ?? Remove card when delete button is clicked, by updating the robot array instance on display
+    d. Add Animation to Robofriend photo when highlighted
+        1. Robofriend grows
+        2. ??Glow upon highlight as card grows
+    e. Implement a nicer scroll bar for Robofriend list display
+    f. Make  sure the app is responsive on mobile devices
+    g. Implement Fixed view port for main page.
 
-
-    className="absolute" style={{ top: '-35px', right: '0', backgroundColor: '#ADD8E6', padding: '5px', borderRadius: '5px' }}
