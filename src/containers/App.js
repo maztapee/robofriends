@@ -10,7 +10,8 @@ class App extends Component{
         this.state = {
             robots: [],
             search_field: "",
-            error: false
+            error: false,
+            available: []
         }
     }
 
@@ -32,6 +33,10 @@ class App extends Component{
 
     onSearchChange = (event) =>{
         this.setState({search_field: event.target.value});
+    };
+
+    delete_card = (robot_id)=>{
+
     };
 
     render(){

@@ -6,3 +6,6 @@ TODOs
     d. Implement a nicer scroll bar for Robofriend list display
     e. Make  sure the app is responsive on mobile devices
     f. Implement Fixed view port for main page.
+
+
+    className="absolute" style={{ top: '-35px', right: '0', backgroundColor: '#ADD8E6', padding: '5px', borderRadius: '5px' }}
