@@ -23,6 +23,12 @@ const DeleteButton = ({remove_card}) => {
         }, 200); // Set a delay of 200 milliseconds
     };
 
+    // const handle_delete_click = (e)=> {
+    //     e.preventDefault();
+    //     console.log("Deleted", e);
+        
+    // };
+
     return(
 
             <div className='absolute top-1 right-1'>
@@ -30,8 +36,8 @@ const DeleteButton = ({remove_card}) => {
                     <button
                         className= 'bg-lightest-blue shadow-5 grow br3 absolute'
                         style={{ width: '75%', height: '65%', top: 0, left: 0 }}
-                        onMouseEnter={handleMouseEnter}
-                        onMouseLeave={handleMouseLeave}
+                        // onMouseEnter={handleMouseEnter}
+                        // onMouseLeave={handleMouseLeave}
                         onClick={remove_card}
                     >
                     X

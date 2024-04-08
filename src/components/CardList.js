@@ -14,7 +14,10 @@ const CardList = ({robots, remove_from_list}) => {
                             id={robots[index].id} 
                             name={robots[index].name} 
                             email={robots[index].email}
-                            delete_card={()=>remove_from_list(robots[index].id)}
+                            delete_card={()=>{
+                                console.log("Delete button clicked", robots.length)
+                                remove_from_list(robots[index].id)
+                            }}
                         />
                     );
                 })
