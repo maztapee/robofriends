@@ -10,3 +10,28 @@
         font-weight: 200;
         color: #0ccac4;
     }
+    body{
+        
+    }
+    /* Hide default scrollbar */
+    ::-webkit-scrollbar {
+    width: 12px; /* Set the width of the scrollbar */
+    
+    }
+
+    /* Track */
+    ::-webkit-scrollbar-track {
+    background: #f1f1f1; /* Color of the track */
+    border-radius: 3.5px;
+    }
+
+    /* Handle */
+    ::-webkit-scrollbar-thumb {
+    background: #888; /* Color of the scrollbar handle */
+    border-radius: 3px; /* Radius of the scrollbar handle */
+    }
+
+    /* Handle on hover */
+    ::-webkit-scrollbar-thumb:hover {
+    background: #555; /* Color of the scrollbar handle on hover */
+    }

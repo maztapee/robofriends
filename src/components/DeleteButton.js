@@ -36,8 +36,8 @@ const DeleteButton = ({remove_card}) => {
                     <button
                         className= 'bg-lightest-blue shadow-5 grow br3 absolute'
                         style={{ width: '75%', height: '65%', top: 0, left: 0 }}
-                        // onMouseEnter={handleMouseEnter}
-                        // onMouseLeave={handleMouseLeave}
+                        onMouseEnter={handleMouseEnter}
+                        onMouseLeave={handleMouseLeave}
                         onClick={remove_card}
                     >
                     X

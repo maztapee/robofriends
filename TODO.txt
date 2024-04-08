@@ -3,7 +3,7 @@ TODOs
     b. Add Create Robofriend page with form to input name and email address of new robot and auto-generate ID
     c. Add Delete Functionality with a re-render
         1. Added button and tooltip
-        2. ?? Remove card when delete button is clicked, by updating the robot array instance on display
+        2. Remove card when delete button is clicked, by updating the robot array instance on display
     d. Add Animation to Robofriend photo when highlighted
         1. Robofriend grows
         2. ??Glow upon highlight as card grows
