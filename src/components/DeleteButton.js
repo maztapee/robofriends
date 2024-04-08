@@ -2,7 +2,7 @@ import React, {useState, useRef} from 'react';
 import 'tachyons';
 import ToolTip from './ToolTip';
 
-const DeleteButton = () => {
+const DeleteButton = ({remove_card}) => {
 
     const [isTooltipVisible, setTooltipVisible] = useState(false);
     const timeoutRef = useRef(null);
@@ -12,7 +12,7 @@ const DeleteButton = () => {
         clearTimeout(timeoutRef.current); // Clear any existing timeout
         timeoutRef.current = setTimeout(() => {
             setTooltipVisible(true);
-        }, 800); // Set a delay of 200 milliseconds
+        }, 800); // Set a delay of 800 milliseconds
     };
     
     const handleMouseLeave = () => {
@@ -32,6 +32,7 @@ const DeleteButton = () => {
                         style={{ width: '75%', height: '65%', top: 0, left: 0 }}
                         onMouseEnter={handleMouseEnter}
                         onMouseLeave={handleMouseLeave}
+                        onClick={remove_card}
                     >
                     X
                     </button>

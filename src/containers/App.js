@@ -35,8 +35,11 @@ class App extends Component{
         this.setState({search_field: event.target.value});
     };
 
-    delete_card = (robot_id)=>{
-
+    remove_robot = (robot_id)=>{
+        console.log('The ID intended to be removed is: '+ robot_id); 
+        this.setState({
+            robots: this.state.robots.filter((robot) => robot.id !== robot_id)
+        })
     };
 
     render(){
@@ -62,7 +65,10 @@ class App extends Component{
                         <SearchBox searchChange={this.onSearchChange}/>
                     </div>
                     <Scroll>
-                        <CardList robots={filteredRobots}/>
+                        <CardList 
+                        robots={filteredRobots}
+                        remove_from_list={this.remove_robot}
+                        />
                     </Scroll>
                 </div>
             )

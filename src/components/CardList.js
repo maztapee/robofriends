@@ -2,7 +2,7 @@ import React from 'react';
 import Card from './Card';
 import 'tachyons';
 
-const CardList = ({robots}) => {
+const CardList = ({robots, remove_from_list}) => {
     
     return(
         <div>
@@ -14,6 +14,7 @@ const CardList = ({robots}) => {
                             id={robots[index].id} 
                             name={robots[index].name} 
                             email={robots[index].email}
+                            delete_card={()=>remove_from_list(robots[index].id)}
                         />
                     );
                 })
