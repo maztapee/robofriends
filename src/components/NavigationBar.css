@@ -1,0 +1,14 @@
+ul{
+    display: flex;
+    list-style-type: none;
+    margin: 10px;
+    padding: 20px;
+}
+li{
+    margin-right: 25px;
+}
+
+button{
+    border-radius: 8px;
+    height: 35px;
+}

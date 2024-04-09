@@ -1,5 +1,8 @@
 TODOs
     a. Implement a Navigation bar consisting  of Home, About Us and Contact Us and Back buttons
+        1. Added Navigation  Bar of buttons styled to the theme of the MainPage 
+        2. Navigation Bar consists of 3 buttons (add new robots, see new robots and see old robots) and a searchbox
+        3.
     b. Add Create Robofriend page with form to input name and email address of new robot and auto-generate ID
     c. Add Delete Functionality with a re-render
         1. Added button and tooltip

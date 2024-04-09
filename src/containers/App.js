@@ -4,6 +4,7 @@ import SearchBox from '../components/SearchBox';
 import Scroll from '../components/Scroll';
 import './App.css';
 import ErrorHandler from './ErrorHandler';
+import NavigationBar from '../components/NavigationBar';
 
 class App extends Component{
     constructor(){
@@ -43,6 +44,14 @@ class App extends Component{
         })
     };
 
+    navigation = (display_set)=>{
+        let set = display_set;
+        console.log(set);
+        if(set.trim() ==='add'){
+            
+        }
+    };
+
     render(){
         const { robots, search_field } = this.state;
         if(this.state.error){
@@ -63,7 +72,10 @@ class App extends Component{
                 <div className='tc'>
                     <div className='tc'>
                         <h1 className='f2'>RoboFriends</h1>
-                        <SearchBox searchChange={this.onSearchChange}/>
+                        <div className='inline-flex'>
+                            <NavigationBar onNavigate={this.navigation} />
+                            <SearchBox searchChange={this.onSearchChange}/>
+                        </div>
                     </div>
                     <Scroll>
                         <ErrorHandler>
