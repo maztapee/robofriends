@@ -1,7 +1,6 @@
 import React, {useState} from 'react';
 
 const AddRobotForm = () => {
-    
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
 
@@ -16,7 +15,7 @@ const AddRobotForm = () => {
     return (
         <div>
             {
-
+                showForm && (
                     <form onSubmit={handleFormSubmit}>
                         <label>
                             Name: <input type='text' value={name} onChange={(e)=>setName(e.target.value)} />
@@ -29,6 +28,7 @@ const AddRobotForm = () => {
                         <br/>
                         <button type='submit'>Add RoboFriend</button>
                     </form>
+                )
             }
         </div>
     )

@@ -3,22 +3,18 @@ import './NavigationBar.css'
 import AddRobotForm from './AddRobotForm';
 
 const NavigationBar = ({onNavigate}) =>{
-
+    
+    const [showForm, setShowForm] = useState(false);
     const handleNavigation = (criteria)=>{
         onNavigate(criteria);  //passing the criteria to App.js for navigation function
     };
-    const [showForm, setShowForm] = useState(false);
-    const handleAddRobotClick = (nav_type)=>{
-        setShowForm(true);
-        handleNavigation(nav_type);
-    }
 
     return (
         <div>
             <nav>
                 <ul>
                     <li>
-                        <button className='bg-lightest-blue grow bw1 shadow-5' onClick={()=> handleAddRobotClick('add')}>
+                        <button className='bg-lightest-blue grow bw1 shadow-5' onClick={()=> handleNavigation('add')}>
                             Add a Robofriend
                         </button>
                     </li>
