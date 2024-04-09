@@ -5,6 +5,7 @@ import Scroll from '../components/Scroll';
 import './App.css';
 import ErrorHandler from './ErrorHandler';
 import NavigationBar from '../components/NavigationBar';
+import AddRobotForm from '../components/AddRobotForm';
 
 class App extends Component{
     constructor(){
@@ -13,7 +14,8 @@ class App extends Component{
             robots: [],
             search_field: "",
             error: false,
-            available: []
+            available: [],
+            showModal: false
         }
     }
 
@@ -44,11 +46,12 @@ class App extends Component{
         })
     };
 
-    navigation = (display_set)=>{
-        let set = display_set;
-        console.log(set);
-        if(set.trim() ==='add'){
-            
+    navigation = (criteria)=>{
+
+        if(criteria ==='add'){
+            this.setState({
+                showModal: true
+            });
         }
     };
 
@@ -76,6 +79,9 @@ class App extends Component{
                             <NavigationBar onNavigate={this.navigation} />
                             <SearchBox searchChange={this.onSearchChange}/>
                         </div>
+                    </div>
+                    <div className={this.state.showModal ? 'visible' : 'hidden'}>
+                        <AddRobotForm/>
                     </div>
                     <Scroll>
                         <ErrorHandler>

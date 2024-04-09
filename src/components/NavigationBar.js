@@ -1,10 +1,9 @@
-import React, {useState} from 'react';
+import React from 'react';
 import './NavigationBar.css'
 import AddRobotForm from './AddRobotForm';
 
 const NavigationBar = ({onNavigate}) =>{
-    
-    const [showForm, setShowForm] = useState(false);
+
     const handleNavigation = (criteria)=>{
         onNavigate(criteria);  //passing the criteria to App.js for navigation function
     };
@@ -30,7 +29,7 @@ const NavigationBar = ({onNavigate}) =>{
                     </li>
                 </ul>
             </nav>
-            {showForm && AddRobotForm}
+            
         </div>
             
     )
