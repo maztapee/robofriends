@@ -10,9 +10,7 @@
         font-weight: 200;
         color: #0ccac4;
     }
-    body{
-        
-    }
+    
     /* Hide default scrollbar */
     ::-webkit-scrollbar {
     width: 12px; /* Set the width of the scrollbar */

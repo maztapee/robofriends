@@ -8,6 +8,8 @@ TODOs
         1. Robofriend grows
         2. ??Glow upon highlight as card grows
     e. Implement a nicer scroll bar for Robofriend list display
+        1. Used CSS to style the track, thumb and scroll bar color (thinner, smoother and grey respectively)
     f. Make  sure the app is responsive on mobile devices
+        1. Auto-Implemented
     g. Implement Fixed view port for main page.
 

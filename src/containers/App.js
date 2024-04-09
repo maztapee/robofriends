@@ -3,6 +3,7 @@ import CardList from '../components/CardList';
 import SearchBox from '../components/SearchBox';
 import Scroll from '../components/Scroll';
 import './App.css';
+import ErrorHandler from './ErrorHandler';
 
 class App extends Component{
     constructor(){
@@ -65,10 +66,12 @@ class App extends Component{
                         <SearchBox searchChange={this.onSearchChange}/>
                     </div>
                     <Scroll>
-                        <CardList 
-                        robots={filteredRobots}
-                        remove_from_list={this.remove_robot}
-                        />
+                        <ErrorHandler>
+                            <CardList 
+                            robots={filteredRobots}
+                            remove_from_list={this.remove_robot}
+                            />
+                        </ErrorHandler>
                     </Scroll>
                 </div>
             )

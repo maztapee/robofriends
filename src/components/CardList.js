@@ -3,8 +3,9 @@ import Card from './Card';
 import 'tachyons';
 
 const CardList = ({robots, remove_from_list}) => {
-    
+
     return(
+        
         <div >
             {
                 robots.map((user,index) =>{
