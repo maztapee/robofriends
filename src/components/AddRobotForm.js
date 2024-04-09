@@ -14,24 +14,23 @@ const AddRobotForm = ({onclose}) => {
         // Reset the form fields
         setName('');
         setEmail('');
-        onclose();
     };
 
     return (
-        <div className='modal'>
-            <span className='clase' onClick={onclose}>&times;</span>
-                <form onSubmit={handleFormSubmit}>
-                    <label>
-                        Name: <input type='text' value={name} onChange={(e)=>setName(e.target.value)} />
-                    </label>
-                    <br/>
+        <div className='tc bg-green w-20 pa2'>
+            <button className='clase' onClick={onclose}>&times;</button>
+            <form onSubmit={handleFormSubmit} className='form bg-yellow'>
+                <label>
+                    Name: <input type='text' value={name} onChange={(e)=>setName(e.target.value)} />
+                </label>
+                <br/>
 
-                    <label>
-                        Email: <input type='text' value={email} onChange={(e)=>setEmail(e.target.value)} />
-                    </label>
-                    <br/>
-                    <button type='submit'>Add RoboFriend</button>
-                </form>
+                <label>
+                    Email: <input type='text' value={email} onChange={(e)=>setEmail(e.target.value)} />
+                </label>
+                <br/>
+                <button type='submit'>Add RoboFriend</button>
+            </form>
         </div>
     )
 }

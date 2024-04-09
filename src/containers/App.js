@@ -39,6 +39,7 @@ class App extends Component{
         this.setState({search_field: event.target.value});
     };
 
+
     remove_robot = (robot_id)=>{
         console.log('The ID intended to be removed is: '+ robot_id); 
         this.setState({
@@ -53,6 +54,12 @@ class App extends Component{
                 showModal: true
             });
         }
+    };
+
+    closeForm = ()=>{
+        this.setState({
+            showModal: false
+        })
     };
 
     render(){
@@ -81,7 +88,7 @@ class App extends Component{
                         </div>
                     </div>
                     <div className={this.state.showModal ? 'visible' : 'hidden'}>
-                        <AddRobotForm/>
+                        <AddRobotForm onclose={this.closeForm}/>
                     </div>
                     <Scroll>
                         <ErrorHandler>
