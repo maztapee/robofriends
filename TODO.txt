@@ -8,6 +8,7 @@ TODOs
         1. Implemented a add new robofriend feature that adds an entry in the static list of fetched users 
             from https://jsonplaceholder.typicode.com/users 
         2. And rendered  it on the mainpage automatically
+        3. ?? Style AddRobotForm with mainpage theme
     c. Add Delete Functionality with a re-render
         1. Added button and tooltip
         2. Remove card when delete button is clicked, by updating the robot array instance on display

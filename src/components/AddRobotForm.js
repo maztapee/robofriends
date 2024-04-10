@@ -11,7 +11,7 @@ const AddRobotForm = ({onclose, submit_form}) => {
         // Handle form submission logic here, you can pass the name and email back to the parent component if needed
         const newRobot = {
             "name": name,
-            "Email": email
+            "email": email
         };
         submit_form(newRobot);
         // Reset the form fields
@@ -21,19 +21,22 @@ const AddRobotForm = ({onclose, submit_form}) => {
     };
 
     return (
-        <div className='tc bg-green w-20 pa2'>
-            <button className='clase' onClick={onclose}>&times;</button>
-            <form onSubmit={handleFormSubmit} className='form bg-yellow'>
+        <div className='form-container relative ba b--solid bw2 bg-lightest-blue w-20 pa2 br3'>
+            
+            <form onSubmit={handleFormSubmit} className='form tc bg-lighter-blue'>
+                <button className='button_1 grow' onClick={onclose}>&times;</button>
+                <label><h3><strong>Enter Name and Email Address of a Robot you want to Add</strong></h3></label>
+                <br/>
                 <label>
-                    Name: <input type='text' value={name} onChange={(e)=>setName(e.target.value)} />
+                   <span><strong>Name:</strong></span><input type='text' value={name} onChange={(e)=>setName(e.target.value)} />
                 </label>
                 <br/>
 
                 <label>
-                    Email: <input type='text' value={email} onChange={(e)=>setEmail(e.target.value)} />
+                    <span><strong>Email :</strong></span><input type='text' value={email} onChange={(e)=>setEmail(e.target.value)} />
                 </label>
                 <br/>
-                <button type='submit'>Add RoboFriend</button>
+                <button className='button_2 grow' style={{fontFamily:'cursive'}} type='submit'>Add RoboFriend</button>
             </form>
         </div>
     )
