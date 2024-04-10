@@ -28,12 +28,12 @@ const AddRobotForm = ({onclose, submit_form}) => {
                 <label><h3><strong>Enter Name and Email Address of a Robot you want to Add</strong></h3></label>
                 <br/>
                 <label>
-                   <span><strong>Name:</strong></span><input type='text' value={name} onChange={(e)=>setName(e.target.value)} />
+                   <span><strong>Name:</strong></span><input type='text' placeholder='name of new robot' value={name} onChange={(e)=>setName(e.target.value)} />
                 </label>
                 <br/>
 
                 <label>
-                    <span><strong>Email :</strong></span><input type='text' value={email} onChange={(e)=>setEmail(e.target.value)} />
+                    <span><strong>Email :</strong></span><input type='text' placeholder='email of new robot' value={email} onChange={(e)=>setEmail(e.target.value)} />
                 </label>
                 <br/>
                 <button className='button_2 grow' style={{fontFamily:'cursive'}} type='submit'>Add RoboFriend</button>

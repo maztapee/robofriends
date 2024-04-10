@@ -40,6 +40,8 @@ class App extends Component{
     };
 
     add_robot = (new_robot)=>{
+        let new_name = new_robot.name;
+        let new_email = new_robot.email;
         const currentRobotList = this.state.robots;
         // Function to find current max id in robots
         function findMaxId (arr){
@@ -54,12 +56,17 @@ class App extends Component{
 
         let maxId = findMaxId(currentRobotList);
         new_robot.id=maxId+1; //assigning new id to new robots which  is one more than the last max id
-        this.setState({
-            robot: this.state.robots.push(new_robot)
-        });
+        if(!(new_name.trim()) && !(new_email.trim())){
+            return
+        }else{
+            this.closeForm();
+            alert("Successfully added new robofriend");
+            this.setState({
+                robot: this.state.robots.push(new_robot)
+            });
+        }
     };
 
-    
     remove_robot = (robot_id)=>{
         console.log('The ID intended to be removed is: '+ robot_id); 
         this.setState({
