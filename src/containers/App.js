@@ -37,6 +37,7 @@ class App extends Component{
 
     onSearchChange = (event) =>{
         this.setState({search_field: event.target.value});
+        return event;
     };
 
     add_robot = (new_robot)=>{
@@ -102,6 +103,7 @@ class App extends Component{
             console.log("old");
 
         }
+        return criteria;
     };
 
     closeForm = ()=>{
@@ -121,9 +123,19 @@ class App extends Component{
                 Loading...
             </h1>
         }else{
-            const filteredRobots = robots.filter(robot => {
-                return robot.name.toLowerCase().includes(search_field.toLowerCase())
-            });
+            let filteredRobots = [];
+            // const check_criteria = this.navigation();
+            const search_change = ()=>{
+                this.onSearchChange();
+            };
+
+
+            if(search_change){
+                filteredRobots = robots.filter(robot => {
+                    return robot.name.toLowerCase().includes(search_field.toLowerCase())
+                });
+            }
+            
 
             return (
                 <div className='tc'>
