@@ -74,12 +74,33 @@ class App extends Component{
         })
     };
 
+    new_robofriends = ()=>{
+        const currentRobotList = this.state.robots;
+        let list_length = currentRobotList.length;
+        let index_of_new = list_length - 5;
+        const newest_robots = currentRobotList.slice(index_of_new);
+        return newest_robots;
+    };
+
     navigation = (criteria)=>{
 
         if(criteria ==='add'){
             this.setState({
                 showModal: true
             });
+        }
+        if(criteria ==='new'){
+            console.log("new");
+            let new_friends = this.new_robofriends()
+            
+            this.setState({
+                robot: new_friends
+            });
+
+        }
+        if(criteria ==='old'){
+            console.log("old");
+
         }
     };
 
