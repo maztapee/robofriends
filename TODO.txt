@@ -1,9 +1,13 @@
 TODOs
-    a. Implement a Navigation bar consisting  of Home, About Us and Contact Us and Back buttons
+    a. Implement a Navigation bar 
         1. Added Navigation  Bar of buttons styled to the theme of the MainPage 
-        2. Navigation Bar consists of 3 buttons (add new robots, see new robots and see old robots) and a searchbox
+        2. Navigation Bar consists of 3 buttons (add new robots, see new robots and see old robots) and a 
+            searchbox
         3.
     b. Add Create Robofriend page with form to input name and email address of new robot and auto-generate ID
+        1. Implemented a add new robofriend feature that adds an entry in the static list of fetched users 
+            from https://jsonplaceholder.typicode.com/users 
+        2. And rendered  it on the mainpage automatically
     c. Add Delete Functionality with a re-render
         1. Added button and tooltip
         2. Remove card when delete button is clicked, by updating the robot array instance on display

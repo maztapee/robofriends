@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import './AddRobotForm.css';
 
-const AddRobotForm = ({onclose}) => {
+const AddRobotForm = ({onclose, submit_form}) => {
 
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
@@ -9,9 +9,13 @@ const AddRobotForm = ({onclose}) => {
     const handleFormSubmit = (e) => {
         e.preventDefault();
         // Handle form submission logic here, you can pass the name and email back to the parent component if needed
-        console.log("Name:", name);
-        console.log("Email:", email);
+        const newRobot = {
+            "name": name,
+            "Email": email
+        };
+        submit_form(newRobot);
         // Reset the form fields
+        onclose();
         setName('');
         setEmail('');
     };

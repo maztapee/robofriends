@@ -39,7 +39,27 @@ class App extends Component{
         this.setState({search_field: event.target.value});
     };
 
+    add_robot = (new_robot)=>{
+        const currentRobotList = this.state.robots;
+        // Function to find current max id in robots
+        function findMaxId (arr){
+            let maxId = 0;
+            for (let robot of arr){
+                if (robot.id > maxId){
+                    maxId = robot.id;
+                }
+            };
+            return maxId;
+        };
 
+        let maxId = findMaxId(currentRobotList);
+        new_robot.id=maxId+1; //assigning new id to new robots which  is one more than the last max id
+        this.setState({
+            robot: this.state.robots.push(new_robot)
+        });
+    };
+
+    
     remove_robot = (robot_id)=>{
         console.log('The ID intended to be removed is: '+ robot_id); 
         this.setState({
@@ -73,7 +93,6 @@ class App extends Component{
                 Loading...
             </h1>
         }else{
-            
             const filteredRobots = robots.filter(robot => {
                 return robot.name.toLowerCase().includes(search_field.toLowerCase())
             });
@@ -88,7 +107,7 @@ class App extends Component{
                         </div>
                     </div>
                     <div className={this.state.showModal ? 'visible' : 'hidden'}>
-                        <AddRobotForm onclose={this.closeForm}/>
+                        <AddRobotForm onclose={this.closeForm} submit_form={this.add_robot}/>
                     </div>
                     <Scroll>
                         <ErrorHandler>
