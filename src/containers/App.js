@@ -14,7 +14,7 @@ class App extends Component{
             robots: [],
             search_field: "",
             error: false,
-            available: [],
+            filteredRobots: [],
             showModal: false
         }
     }
@@ -75,11 +75,9 @@ class App extends Component{
         })
     };
 
-    new_robofriends = ()=>{
-        const currentRobotList = this.state.robots;
-        let list_length = currentRobotList.length;
-        let index_of_new = list_length - 5;
-        const newest_robots = currentRobotList.slice(index_of_new);
+    new_robofriends = (currentRobotList)=>{
+        currentRobotList = this.state.robots;
+        let newest_robots = currentRobotList.slice(-5);
         return newest_robots;
     };
 
@@ -90,15 +88,15 @@ class App extends Component{
                 showModal: true
             });
         }
+
         if(criteria ==='new'){
             console.log("new");
-            let new_friends = this.new_robofriends()
-            
+            console.log(this.new_robofriends(this.state.robots));
             this.setState({
-                robot: new_friends
-            });
-
+                robots: this.new_robofriends(this.state.robots)
+            })
         }
+
         if(criteria ==='old'){
             console.log("old");
 
@@ -123,19 +121,16 @@ class App extends Component{
                 Loading...
             </h1>
         }else{
-            let filteredRobots = [];
-            // const check_criteria = this.navigation();
+
             const search_change = ()=>{
                 this.onSearchChange();
             };
 
-
             if(search_change){
-                filteredRobots = robots.filter(robot => {
+                this.filteredRobots = robots.filter(robot => {
                     return robot.name.toLowerCase().includes(search_field.toLowerCase())
                 });
-            }
-            
+            };
 
             return (
                 <div className='tc'>
@@ -152,7 +147,7 @@ class App extends Component{
                     <Scroll>
                         <ErrorHandler>
                             <CardList 
-                            robots={filteredRobots}
+                            robots={this.filteredRobots}
                             remove_from_list={this.remove_robot}
                             />
                         </ErrorHandler>
