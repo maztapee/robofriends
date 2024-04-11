@@ -13,6 +13,11 @@ const NavigationBar = ({onNavigate}) =>{
             <nav>
                 <ul>
                     <li>
+                        <button className='bg-lightest-blue grow bw1 shadow-5' onClick={()=> handleNavigation('friends')}>
+                            All Robofriends
+                        </button>
+                    </li>
+                    <li>
                         <button className='bg-lightest-blue grow bw1 shadow-5' onClick={()=> handleNavigation('add')}>
                             Add a Robofriend
                         </button>

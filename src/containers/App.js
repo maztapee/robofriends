@@ -14,8 +14,9 @@ class App extends Component{
             robots: [],
             search_field: "",
             error: false,
-            available: [],
-            showModal: false
+            filteredRobots: [],
+            showModal: false,
+            available: []
         }
     }
 
@@ -28,15 +29,19 @@ class App extends Component{
                 return response.json()
             })
     
-            .then(users => this.setState({robots: users}))
+            .then((users) => {
+                this.setState({robots: users})
+                this.setState({available: users});
+            })
             .catch(error => {
                 console.log(`Error fetching data ${error}`);
                 this.setState({error: true})
             })
-    }
+    };
 
     onSearchChange = (event) =>{
         this.setState({search_field: event.target.value});
+        return event;
     };
 
     add_robot = (new_robot)=>{
@@ -62,8 +67,11 @@ class App extends Component{
             this.closeForm();
             alert("Successfully added new robofriend");
             this.setState({
-                robot: this.state.robots.push(new_robot)
+                robots: this.state.robots.push(new_robot)
             });
+            this.setState({
+                available: this.state.robots
+            })
         }
     };
 
@@ -71,37 +79,54 @@ class App extends Component{
         console.log('The ID intended to be removed is: '+ robot_id); 
         this.setState({
             robots: this.state.robots.filter((robot) => robot.id !== robot_id)
-        })
+        });
+        this.setState({
+            available: this.state.robots
+        });
     };
 
-    new_robofriends = ()=>{
-        const currentRobotList = this.state.robots;
-        let list_length = currentRobotList.length;
-        let index_of_new = list_length - 5;
-        const newest_robots = currentRobotList.slice(index_of_new);
+    new_robofriends = (currentRobotList)=>{
+        currentRobotList = this.state.robots;
+        let newest_robots = currentRobotList.slice(-5);
         return newest_robots;
     };
 
+    old_robofriends = (currentRobotList)=>{
+        currentRobotList = this.state.robots;
+        let oldest_robots = currentRobotList.slice(0,5);
+        return oldest_robots;
+    };
+
     navigation = (criteria)=>{
+
+        if(criteria ==='friends'){
+            this.setState({
+                robots: this.state.available
+            });
+        };
 
         if(criteria ==='add'){
             this.setState({
                 showModal: true
             });
-        }
+        };
+
         if(criteria ==='new'){
             console.log("new");
-            let new_friends = this.new_robofriends()
-            
+            console.log(this.new_robofriends(this.state.robots));
             this.setState({
-                robot: new_friends
-            });
+                robots: this.new_robofriends(this.state.robots)
+            })
+        };
 
-        }
         if(criteria ==='old'){
             console.log("old");
+            console.log(this.old_robofriends(this.state.robots));
+            this.setState({
+                robots: this.old_robofriends(this.state.robots)
+            })
+        };
 
-        }
     };
 
     closeForm = ()=>{
@@ -121,9 +146,16 @@ class App extends Component{
                 Loading...
             </h1>
         }else{
-            const filteredRobots = robots.filter(robot => {
-                return robot.name.toLowerCase().includes(search_field.toLowerCase())
-            });
+
+            const search_change = ()=>{
+                this.onSearchChange();
+            };
+
+            if(search_change){
+                this.filteredRobots = robots.filter(robot => {
+                    return robot.name.toLowerCase().includes(search_field.toLowerCase())
+                });
+            };
 
             return (
                 <div className='tc'>
@@ -140,7 +172,7 @@ class App extends Component{
                     <Scroll>
                         <ErrorHandler>
                             <CardList 
-                            robots={filteredRobots}
+                            robots={this.filteredRobots}
                             remove_from_list={this.remove_robot}
                             />
                         </ErrorHandler>
