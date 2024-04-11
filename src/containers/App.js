@@ -83,7 +83,7 @@ class App extends Component{
             robots: this.state.robots.filter((robot) => robot.id !== robot_id)
         });
         this.setState({
-            available: this.state.robots
+            available: this.state.available.filter((robot) => robot.id !== robot_id)
         });
     };
 
