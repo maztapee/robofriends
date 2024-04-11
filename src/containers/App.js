@@ -30,8 +30,10 @@ class App extends Component{
             })
     
             .then((users) => {
-                this.setState({robots: users})
-                this.setState({available: users});
+                this.setState({
+                    robots: users,
+                    available: users
+                })
             })
             .catch(error => {
                 console.log(`Error fetching data ${error}`);
@@ -67,10 +69,10 @@ class App extends Component{
             this.closeForm();
             alert("Successfully added new robofriend");
             this.setState({
-                robots: this.state.robots.push(new_robot)
+                robots: [...this.state.robots, new_robot]
             });
             this.setState({
-                available: this.state.robots
+                available: [...this.state.available, new_robot]
             })
         }
     };
@@ -85,45 +87,40 @@ class App extends Component{
         });
     };
 
-    new_robofriends = (currentRobotList)=>{
-        currentRobotList = this.state.robots;
-        let newest_robots = currentRobotList.slice(-5);
-        return newest_robots;
+    new_robofriends = ()=>{
+        return this.state.available.slice(-5);
     };
 
-    old_robofriends = (currentRobotList)=>{
-        currentRobotList = this.state.robots;
-        let oldest_robots = currentRobotList.slice(0,5);
-        return oldest_robots;
+    old_robofriends = ()=>{
+        return this.state.available.slice(0, 5);
     };
 
     navigation = (criteria)=>{
-
         if(criteria ==='friends'){
             this.setState({
                 robots: this.state.available
             });
-        };
+        }
 
-        if(criteria ==='add'){
+        else if(criteria ==='add'){
             this.setState({
                 showModal: true
             });
-        };
+        }
 
-        if(criteria ==='new'){
+        else if(criteria ==='new'){
+
             console.log("new");
-            console.log(this.new_robofriends(this.state.robots));
             this.setState({
-                robots: this.new_robofriends(this.state.robots)
-            })
+                robots: this.new_robofriends()
+            });
         };
 
         if(criteria ==='old'){
+
             console.log("old");
-            console.log(this.old_robofriends(this.state.robots));
             this.setState({
-                robots: this.old_robofriends(this.state.robots)
+                robots: this.old_robofriends()
             })
         };
 
@@ -136,12 +133,11 @@ class App extends Component{
     };
 
     render(){
-        const { robots, search_field } = this.state;
-        if(this.state.error){
+        const { robots, search_field, error } = this.state;
+        if(error){
             return <h1> An error has occurred. Failed to fetch your RoboFriends list </h1>
         };
-        
-        if(!this.state.error && !robots.length){
+        if(!robots || !robots.length){
             return <h1>
                 Loading...
             </h1>
