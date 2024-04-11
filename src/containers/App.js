@@ -29,12 +29,15 @@ class App extends Component{
                 return response.json()
             })
     
-            .then(users => this.setState({robots: users}))
+            .then((users) => {
+                this.setState({robots: users})
+                this.setState({available: users});
+            })
             .catch(error => {
                 console.log(`Error fetching data ${error}`);
                 this.setState({error: true})
             })
-    }
+    };
 
     onSearchChange = (event) =>{
         this.setState({search_field: event.target.value});
@@ -64,8 +67,11 @@ class App extends Component{
             this.closeForm();
             alert("Successfully added new robofriend");
             this.setState({
-                robot: this.state.robots.push(new_robot)
+                robots: this.state.robots.push(new_robot)
             });
+            this.setState({
+                available: this.state.robots
+            })
         }
     };
 
@@ -73,7 +79,10 @@ class App extends Component{
         console.log('The ID intended to be removed is: '+ robot_id); 
         this.setState({
             robots: this.state.robots.filter((robot) => robot.id !== robot_id)
-        })
+        });
+        this.setState({
+            available: this.state.robots
+        });
     };
 
     new_robofriends = (currentRobotList)=>{
@@ -89,6 +98,12 @@ class App extends Component{
     };
 
     navigation = (criteria)=>{
+
+        if(criteria ==='friends'){
+            this.setState({
+                robots: this.state.available
+            });
+        };
 
         if(criteria ==='add'){
             this.setState({
