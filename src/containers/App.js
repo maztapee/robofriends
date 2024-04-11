@@ -15,7 +15,8 @@ class App extends Component{
             search_field: "",
             error: false,
             filteredRobots: [],
-            showModal: false
+            showModal: false,
+            available: []
         }
     }
 
@@ -81,13 +82,19 @@ class App extends Component{
         return newest_robots;
     };
 
+    old_robofriends = (currentRobotList)=>{
+        currentRobotList = this.state.robots;
+        let oldest_robots = currentRobotList.slice(0,5);
+        return oldest_robots;
+    };
+
     navigation = (criteria)=>{
 
         if(criteria ==='add'){
             this.setState({
                 showModal: true
             });
-        }
+        };
 
         if(criteria ==='new'){
             console.log("new");
@@ -95,13 +102,16 @@ class App extends Component{
             this.setState({
                 robots: this.new_robofriends(this.state.robots)
             })
-        }
+        };
 
         if(criteria ==='old'){
             console.log("old");
+            console.log(this.old_robofriends(this.state.robots));
+            this.setState({
+                robots: this.old_robofriends(this.state.robots)
+            })
+        };
 
-        }
-        return criteria;
     };
 
     closeForm = ()=>{
