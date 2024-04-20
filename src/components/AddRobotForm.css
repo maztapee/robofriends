@@ -67,6 +67,7 @@
       width: 80%; /* Adjust container width for smaller screens */
       padding: 5px;
       top: 70%;
+      z-index: 10;
     }
 }
 label{
