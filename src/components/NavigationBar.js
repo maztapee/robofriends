@@ -1,6 +1,5 @@
 import React from 'react';
 import './NavigationBar.css'
-import AddRobotForm from './AddRobotForm';
 
 const NavigationBar = ({onNavigate}) =>{
 
@@ -9,9 +8,9 @@ const NavigationBar = ({onNavigate}) =>{
     };
 
     return (
-        <div>
+        <div  className='flex flex-wrap: wrap'>
             <nav>
-                <ul>
+                <ul className="flex justify-between">
                     <li>
                         <button className='bg-lightest-blue grow bw1 shadow-5' onClick={()=> handleNavigation('friends')}>
                             All Robofriends

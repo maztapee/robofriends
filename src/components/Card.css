@@ -7,3 +7,14 @@
   .card:hover {
     animation: glow 1s infinite alternate; /* Apply the glow animation on hover */
   }
+  .card-container{
+    position:relative;
+    display:inline-flex;
+    overflow-wrap:normal; 
+    margin: "5px";
+    max-width: 100%;
+    align-content: center;
+  }
+  .card{
+    max-width: 250px;
+  }

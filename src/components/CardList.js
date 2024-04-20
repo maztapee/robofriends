@@ -1,12 +1,13 @@
 import React from 'react';
 import Card from './Card';
 import 'tachyons';
+import './CardList.css'
 
 const CardList = ({robots, remove_from_list}) => {
 
     return(
         
-        <div >
+        <div className='card-list-grid' >
             {
                 robots.map((user,index) =>{
                     return( 

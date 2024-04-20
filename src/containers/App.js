@@ -155,9 +155,9 @@ class App extends Component{
 
             return (
                 <div className='tc'>
-                    <div className='tc'>
+                    <div className='page-head tc'>
                         <h1 className='f2'>RoboFriends</h1>
-                        <div className='inline-flex'>
+                        <div className='nav-bar inline-flex'>
                             <NavigationBar onNavigate={this.navigation} />
                             <SearchBox searchChange={this.onSearchChange}/>
                         </div>

@@ -5,7 +5,7 @@ import './Card.css';
 
 const Card = ({name, email, id, delete_card }) => {
     return(
-        <div className='relative' style={{display:"inline-block", margin: "5px"}}>
+        <div className='card-container' >
         
             <div className='bg-light-green dib br3 pa3 ma2 grow bw2 shadow-5 card'>
                     <img src={`https://robohash.org/${id}`} alt='robo_pic'/>

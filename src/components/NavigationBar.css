@@ -1,14 +1,21 @@
 ul{
     display: flex;
+    flex-wrap: wrap-reverse;
     list-style-type: none;
-    margin: 10px;
-    padding: 20px;
+    max-width: 100%;
+    min-height: fit-content;
 }
 li{
-    margin-right: 25px;
+    margin-right: 20px;
 }
 
 button{
     border-radius: 8px;
-    height: 35px;
+    max-width: min-content;
+}
+
+nav{
+    display: relative;
+    align-items: center;
+    position: sticky;
 }

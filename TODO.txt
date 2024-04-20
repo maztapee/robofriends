@@ -3,7 +3,7 @@ TODOs
         1. Added Navigation  Bar of buttons styled to the theme of the MainPage 
         2. Navigation Bar consists of 3 buttons (add new robots, see new robots and see old robots) and a 
             searchbox
-        3.
+        3. Added a button for All RoboFriends on the Navigation Bar
     b. Add Create Robofriend page with form to input name and email address of new robot and auto-generate ID
         1. Implemented a add new robofriend feature that adds an entry in the static list of fetched users 
             from https://jsonplaceholder.typicode.com/users 

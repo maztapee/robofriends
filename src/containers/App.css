@@ -33,3 +33,24 @@
     ::-webkit-scrollbar-thumb:hover {
     background: #555; /* Color of the scrollbar handle on hover */
     }
+
+    .scroll{
+        
+        border:3px solid black;
+        box-sizing:content-box;
+        border-radius:15px; 
+        padding:5px;
+        align-content: center;
+        margin-top: 300px;
+
+    }
+
+    .page-head{
+        position: fixed;
+        width: 100%;
+        justify-content: center;
+        top: 0;
+        z-index: 5;
+        background: linear-gradient(to left, rgba(7,27,82,1) 0%, rgba(0, 128, 128, 1) 100%);
+        
+    }
