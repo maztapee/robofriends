@@ -1,12 +1,62 @@
-ul{
+.navbar{
     display: flex;
-    flex-wrap: wrap-reverse;
-    list-style-type: none;
-    max-width: 100%;
-    min-height: fit-content;
+    align-items: center;
+    justify-content: flex-end;
+    background-color: #333;
+    color: white;
+    padding: 10px;
 }
-li{
-    margin-right: 20px;
+
+.collapsible-panel{
+    min-width: 200px;
+    background-color: aliceblue;
+    display: flex;
+    padding-left: 15px;
+    padding-right: 15px;
+    align-items: center;
+    overflow: hidden;
+    transition: all 1.0s ease;
+}
+
+.collapsed-content{
+    z-index: 7;
+    background-color: #1295e0;
+    min-width: 35px;
+    border: 1px solid rgb(27, 132, 173);
+    border-radius: 5px;
+}
+.tooltip{
+    
+}
+
+.collapsed{
+    width: 20px;
+    min-width: 50px;
+    border-radius: 8px;
+    height: 50px;
+    justify-content: center;
+}
+
+.expanded{
+    width: 200px;
+    justify-content: center;
+    background-color: #78c2ec;
+    border-radius: 8px;
+}
+
+.navbar-btn{
+    list-style-type: none;
+    margin: 0;
+    padding: 5px;
+}
+
+.navbar-btn li{
+    margin-right: 10px;
+    cursor: pointer;
+}
+
+.navbar-btn li:hover{
+    background-color: aqua;
 }
 
 button{
@@ -14,8 +64,26 @@ button{
     max-width: min-content;
 }
 
-nav{
-    display: relative;
-    align-items: center;
-    position: sticky;
-}
+.bars-icon {
+    width: 30%;
+    height: 30%;
+    background-color: #fff;
+    position: relative;
+  }
+  
+  .bars-icon::before,
+  .bars-icon::after {
+    content: '';
+    position: absolute;
+    width: 20px;
+    height: 3px;
+    background-color: #fff;
+  }
+  
+  .bars-icon::before {
+    top: -8px;
+  }
+  
+  .bars-icon::after {
+    top: 8px;
+  }
